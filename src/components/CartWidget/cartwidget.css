@@ -1,0 +1,5 @@
+.cartwidget{
+  display: flex;
+  align-items: center;
+  color: rgb(210, 36, 36);
+}

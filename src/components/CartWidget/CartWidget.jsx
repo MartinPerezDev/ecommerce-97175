@@ -1,9 +1,10 @@
-import { LuShoppingCart } from "react-icons/lu";
+import { FaCartShopping } from "react-icons/fa6";
+import "./cartwidget.css";
 
 const CartWidget = () => {
   return (
-    <div>
-      <LuShoppingCart size={70} />
+    <div className="cartwidget">
+      <FaCartShopping size={30} />
       <p>1</p>
     </div>
   )
