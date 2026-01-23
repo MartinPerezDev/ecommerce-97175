@@ -1,33 +1,60 @@
-import { getProducts } from "../../data/data.js";
 import { useState, useEffect } from "react";
 import ItemList from "../ItemList/ItemList";
 import "./itemlistcontainer.css";
+import { getProducts, getProductById, addProduct, deleteProductById, setProductById } from "../../data/api.js"
 
 const ItemListContainer = ({ saludo }) => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
 
     getProducts()
-      .then((response) => {
-        setProducts(response);
+      .then((data) => {
+        setProducts(data);
       })
-      .catch((error)=> {
-        console.log(error);
+
+    getProductById(2)
+      .then((data) => {
+        console.log(data);
       })
-      .finally(()=> {
-        setLoading(false)
-      });
 
   }, []);
+
+  const newProduct = {
+    name: "Teclado",
+    description: "Teclado inalambrico",
+    stock: 2,
+    image: "",
+    price: 500,
+    category: "teclados"
+  };
+
+  const clickEvent = () => {
+    /*
+    addProduct(newProduct)
+      .then((data)=> {
+        console.log(data)
+      })
+    
+    deleteProductById(1)
+      .then((data)=> {
+        console.log(data);
+      })
+    */
+    setProductById(4, { price: 5200 })
+      .then((data) => {
+        console.log(data)
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
 
   return (
     <div className="itemlistcontainer">
       <h2>{saludo}</h2>
-      {
-        loading === true ? <div>Cargando...</div> : <ItemList products={products} />
-      }
+      <button onClick={clickEvent} >Editar Producto</button>
+      <ItemList products={products} />
     </div>
   )
 };
