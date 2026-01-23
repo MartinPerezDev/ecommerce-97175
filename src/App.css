@@ -1,8 +1,11 @@
+*{
+  box-sizing: border-box;
+}
+
 body{
   font-family: system-ui;
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
   background-color: rgb(24, 24, 24);
   color: rgb(219, 219, 219);
 }

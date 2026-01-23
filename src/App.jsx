@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
       <NavBar />
-      <ItemListContainer saludo={"Hola Mundo"} />
+      <ItemListContainer saludo={"Bienvenidos a Redragon Ecommerce"} />
     </div>
   )
 }
