@@ -1,8 +1,9 @@
 .navbar{
-  background-color: rgb(20, 20, 20);
+  background-color: rgba(20, 20, 20, 0.919);
   display: flex;
   justify-content: space-between;
-  border-bottom: 5px solid rgb(56, 6, 6);
+  align-items: center;
+  border-bottom: 5px solid rgba(255, 0, 0, 0.274);
   padding: 10px 30px;
   margin: 0 0 50px 0;
   font-size: 20px;
@@ -13,23 +14,39 @@
   height: 110px;
 }
 .categories{
+  height: 60px;
+  padding: 0;
   display: flex;
-  align-items: center;
+  justify-content: center;
   list-style: none;
   font-weight: 400;
+  background-color: rgb(28, 28, 28);
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 5px 20px 1px #ff00001d;
+  box-shadow: 0px 5px 20px 1px #ff00001d;
 }
-.categories li{
-  height: 100%;
+.categories .category {
   display: flex;
+  justify-content: center;
   align-items: center;
-  padding: 0 20px;
-  margin: 0 5px;
-}
-.categories .category{
-  color: rgb(215, 34, 34);
   text-decoration: none;
+  height: 100%;
+  padding: 0px 25px;
+  color: rgb(189, 189, 189);
 }
-.categories li:hover{
+
+.categories .category:hover {
+  color: white;
   cursor: pointer;
   border-bottom: 5px solid rgb(181, 15, 15);
+  background-color: rgba(138, 27, 27, 0.529);
+  border-radius: 10px;
+}
+
+.categories .active{
+  color: white;
+  cursor: pointer;
+  border-bottom: 5px solid rgb(181, 15, 15);
+  background-color: rgba(138, 27, 27, 0.529);
+  border-radius: 10px;
 }

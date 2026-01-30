@@ -63,3 +63,12 @@ export const getProducts = () => {
     }, 3000);
   });
 };
+
+export const getProductById = (productId) => {
+  return new Promise((resolve, reject)=> {
+    setTimeout(()=> {
+      const product = products.find( (productData) => productData.id === Number(productId) );
+      resolve(product);
+    }, 2000);
+  });
+}
