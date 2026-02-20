@@ -5,6 +5,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import { BrowserRouter, Routes, Route } from 'react-router';
 import { CartProvider } from './context/CartContext';
 import Cart from './components/Cart/Cart';
+import Checkout from './components/Checkout/Checkout';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/category/:category" element={<ItemListContainer saludo={"Bienvenidos a Redragon Ecommerce"} />} />
           <Route path="/detail/:productId" element={<ItemDetailContainer />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
 
           <Route path="*" element={<div>404 not found</div>} />
         </Routes>
