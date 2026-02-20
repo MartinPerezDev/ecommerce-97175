@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react"
-import { getProductById } from "../../data/data.js";
+import { useState, useEffect } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router";
+import db from "../../db/db.js";
+import { doc, getDoc } from "firebase/firestore";
 import "./itemdetailcontainer.css";
 
 const ItemDetailContainer = () => {
@@ -9,17 +10,22 @@ const ItemDetailContainer = () => {
   const [loading, setLoading] = useState(true);
   const { productId } = useParams();
 
+  const getProduct = async () => {
+    try {
+      const docRef = doc(db, "products", productId);
+      const dataDb = await getDoc(docRef);
+      const data = { id: dataDb.id, ...dataDb.data() };
+
+      setProduct(data);
+    } catch (error) {
+      console.log("Error al traer el producto por id!");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    getProductById(productId)
-      .then((data) => {
-        setProduct(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    getProduct();
   }, [productId]);
 
   return (

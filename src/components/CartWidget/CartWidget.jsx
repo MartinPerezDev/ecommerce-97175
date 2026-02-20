@@ -6,11 +6,14 @@ import "./cartwidget.css";
 
 const CartWidget = () => {
   const { totalQuantity } = useContext(CartContext);
+  const quantity = totalQuantity();
 
   return (
     <Link to="/cart" className="cartwidget">
       <FaCartShopping size={30} />
-      <p className="notification-cartwidget">{ totalQuantity() }</p>
+      {
+        quantity > 0 && <p className="notification-cartwidget">{quantity}</p>
+      }
     </Link>
   )
 }
